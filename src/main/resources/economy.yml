@@ -1,0 +1,22 @@
+# Aether currency (internal; no Vault needed). Amounts are whole numbers.
+currency:
+  name: Aether
+  symbol: "◆"
+  icon: AMETHYST_SHARD            # item shown for Aether in every menu (any item material)
+
+starting-balance: 500          # new players can afford the Warrior kit straight away
+allow-negative: false          # when true, min-balance may be below 0
+min-balance: 0
+max-balance: 1000000000        # rewards are trimmed to fit; 0 = effectively unlimited
+
+transfers:
+  enabled: true
+  min: 1
+  max: 100000
+  cooldown-seconds: 3
+  tax-percent: 0               # burned from each transfer
+
+rewards:
+  kill:
+    base: 20                   # Aether per valid kill (0 = off). Kit price ladder in PremadeKits.java is balanced around this
+    cooldown-seconds: 3        # min seconds between kill payouts per killer (kill still counts for stats/streaks)

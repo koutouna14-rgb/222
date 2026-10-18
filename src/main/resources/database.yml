@@ -1,0 +1,3 @@
+# Storage. SQLite is bundled with Paper; no credentials are needed or stored.
+# Changing the file name requires a restart (and moving the old file).
+file: aetherffa.db

@@ -1,0 +1,614 @@
+# Cosmetics never affect combat. Price 0 + no permission = free. A permission grants it for free.
+enabled: true
+content-version: 3   # internal: lets updates add NEW effects/messages once (never overwrites or restores deleted ones)
+settings:
+  max-particles-per-effect: 60   # hard cap per play, for performance
+
+kill-effects:
+  flame:
+    name: "Flame Burst"
+    icon: BLAZE_POWDER
+    price: 500
+    permission: ""
+    particle: FLAME
+    count: 30
+    spread: 0.4
+    speed: 0.05
+    sound: entity.blaze.shoot
+  cloud:
+    name: "Sky Puff"
+    icon: WHITE_WOOL
+    price: 300
+    permission: ""
+    particle: CLOUD
+    count: 25
+    spread: 0.5
+    speed: 0.02
+    sound: ""
+  sparkle:
+    name: "Aether Sparkle"
+    icon: END_ROD
+    price: 800
+    permission: ""
+    particle: END_ROD
+    count: 30
+    spread: 0.4
+    speed: 0.05
+    sound: entity.player.levelup
+  heartburst:
+    name: "Love Bomb"
+    icon: RED_DYE
+    price: 400
+    permission: ""
+    particle: HEART
+    count: 15
+    spread: 0.5
+    speed: 0.1
+    sound: entity.experience_orb.pickup
+  crit:
+    name: "Critical Strike"
+    icon: IRON_SWORD
+    price: 350
+    permission: ""
+    particle: CRIT
+    count: 40
+    spread: 0.5
+    speed: 0.3
+    sound: entity.player.attack.crit
+  happy:
+    name: "Good Game"
+    icon: EMERALD
+    price: 300
+    permission: ""
+    particle: HAPPY_VILLAGER
+    count: 20
+    spread: 0.5
+    speed: 0.1
+    sound: entity.villager.yes
+  angry:
+    name: "Rage"
+    icon: REDSTONE
+    price: 300
+    permission: ""
+    particle: ANGRY_VILLAGER
+    count: 8
+    spread: 0.4
+    speed: 0.1
+    sound: entity.villager.no
+  smoke:
+    name: "Smoke Bomb"
+    icon: COAL
+    price: 400
+    permission: ""
+    particle: LARGE_SMOKE
+    count: 25
+    spread: 0.4
+    speed: 0.02
+    sound: entity.firework_rocket.shoot
+  melody:
+    name: "Melody"
+    icon: NOTE_BLOCK
+    price: 450
+    permission: ""
+    particle: NOTE
+    count: 15
+    spread: 0.6
+    speed: 1.0
+    sound: block.note_block.bell
+  arcane:
+    name: "Arcane Hit"
+    icon: ENCHANTED_BOOK
+    price: 600
+    permission: ""
+    particle: ENCHANTED_HIT
+    count: 35
+    spread: 0.5
+    speed: 0.2
+    sound: block.enchantment_table.use
+  hex:
+    name: "Hex"
+    icon: FERMENTED_SPIDER_EYE
+    price: 600
+    permission: ""
+    particle: WITCH
+    count: 30
+    spread: 0.5
+    speed: 0.05
+    sound: entity.evoker.cast_spell
+  souls:
+    name: "Lost Souls"
+    icon: SOUL_SAND
+    price: 700
+    permission: ""
+    particle: SOUL
+    count: 20
+    spread: 0.5
+    speed: 0.03
+    sound: particle.soul_escape
+  frost:
+    name: "Frostbite"
+    icon: SNOWBALL
+    price: 700
+    permission: ""
+    particle: SNOWFLAKE
+    count: 40
+    spread: 0.5
+    speed: 0.03
+    sound: block.glass.break
+  soulfire:
+    name: "Soul Fire"
+    icon: SOUL_LANTERN
+    price: 900
+    permission: ""
+    particle: SOUL_FIRE_FLAME
+    count: 30
+    spread: 0.4
+    speed: 0.03
+    sound: entity.generic.extinguish_fire
+  cherry:
+    name: "Cherry Blossom"
+    icon: CHERRY_SAPLING
+    price: 900
+    permission: ""
+    particle: CHERRY_LEAVES
+    count: 30
+    spread: 0.6
+    speed: 0.05
+    sound: block.cherry_leaves.break
+  glowburst:
+    name: "Glow Burst"
+    icon: GLOW_INK_SAC
+    price: 800
+    permission: ""
+    particle: GLOW
+    count: 30
+    spread: 0.5
+    speed: 0.05
+    sound: block.amethyst_block.chime
+  magma:
+    name: "Magma Splash"
+    icon: LAVA_BUCKET
+    price: 800
+    permission: ""
+    particle: LAVA
+    count: 20
+    spread: 0.4
+    speed: 0.0
+    sound: block.lava.pop
+  fireworks:
+    name: "Fireworks"
+    icon: FIREWORK_ROCKET
+    price: 1000
+    permission: ""
+    particle: FIREWORK
+    count: 40
+    spread: 0.4
+    speed: 0.15
+    sound: entity.firework_rocket.blast
+  static:
+    name: "Static Shock"
+    icon: LIGHTNING_ROD
+    price: 1100
+    permission: ""
+    particle: ELECTRIC_SPARK
+    count: 40
+    spread: 0.5
+    speed: 0.3
+    sound: entity.lightning_bolt.impact
+  rift:
+    name: "Void Rift"
+    icon: ENDER_PEARL
+    price: 1200
+    permission: ""
+    particle: PORTAL
+    count: 50
+    spread: 0.5
+    speed: 0.8
+    sound: entity.enderman.teleport
+  totem:
+    name: "Totem Pop"
+    icon: TOTEM_OF_UNDYING
+    price: 1500
+    permission: ""
+    particle: TOTEM_OF_UNDYING
+    count: 35
+    spread: 0.5
+    speed: 0.3
+    sound: item.totem.use
+  boom:
+    name: "Boom"
+    icon: TNT
+    price: 2000
+    permission: ""
+    particle: EXPLOSION
+    count: 1
+    spread: 0.0
+    speed: 0.0
+    sound: entity.generic.explode
+
+  # ---- v3: animated effects (shape = burst | ring | helix | spiral | column | tornado | sphere | rain | ascend) ----
+  inferno:
+    name: "<gradient:#FF8A00:#FF2D2D>Inferno</gradient>"
+    description: "A double helix of fire climbs your victim."
+    icon: MAGMA_CREAM
+    price: 1800
+    permission: ""
+    shape: helix
+    particle: FLAME
+    particle2: SOUL_FIRE_FLAME
+    count: 40
+    duration: 18
+    speed: 0.01
+    sound: entity.blaze.shoot
+    sound2: item.firecharge.use
+  thunderstrike:
+    name: "<gradient:#FFF200:#4DA6FF>Thunderstrike</gradient>"
+    description: "A harmless lightning bolt and an electric shockwave."
+    icon: LIGHTNING_ROD
+    price: 3500
+    permission: ""
+    shape: ring
+    particle: ELECTRIC_SPARK
+    particle2: END_ROD
+    count: 40
+    duration: 12
+    speed: 0.2
+    lightning: true
+    sound: entity.lightning_bolt.thunder
+    sound-volume: 0.7
+  shockwave:
+    name: "<gradient:#FFFFFF:#9AD1FF>Shockwave</gradient>"
+    description: "A ring of air blasts out of the kill."
+    icon: WIND_CHARGE
+    price: 1500
+    permission: ""
+    shape: ring
+    particle: CLOUD
+    particle2: SONIC_BOOM
+    count: 36
+    duration: 10
+    speed: 0.02
+    sound: entity.generic.explode
+    sound-pitch: 1.4
+  soulreaper:
+    name: "<gradient:#00E5FF:#6A00FF>Soul Reaper</gradient>"
+    description: "The victim's soul is pulled up into the sky."
+    icon: SOUL_TORCH
+    price: 2500
+    permission: ""
+    shape: column
+    particle: SOUL
+    particle2: SOUL_FIRE_FLAME
+    count: 45
+    duration: 24
+    speed: 0.02
+    sound: particle.soul_escape
+    sound2: entity.wither.ambient
+    sound2-delay: 8
+  galaxy:
+    name: "<gradient:#B57BFF:#4DA6FF>Galaxy</gradient>"
+    description: "A spiral of stars collapses on the spot."
+    icon: AMETHYST_CLUSTER
+    price: 3000
+    permission: ""
+    shape: spiral
+    particle: END_ROD
+    particle2: ENCHANT
+    count: 48
+    duration: 22
+    speed: 0.01
+    sound: block.amethyst_block.resonate
+    sound2: entity.enderman.teleport
+    sound2-delay: 18
+  tornado:
+    name: "<gradient:#C0C0C0:#FFFFFF>Twister</gradient>"
+    description: "A mini tornado rips up from the ground."
+    icon: BREEZE_ROD
+    price: 2200
+    permission: ""
+    shape: tornado
+    particle: CLOUD
+    particle2: WHITE_ASH
+    count: 60
+    duration: 22
+    speed: 0.01
+    sound: entity.breeze.wind_burst
+  supernova:
+    name: "<gradient:#FFD700:#FF4DA6>Supernova</gradient>"
+    description: "A glowing shell expands outwards and fades."
+    icon: NETHER_STAR
+    price: 4500
+    permission: ""
+    shape: sphere
+    particle: GLOW
+    particle2: END_ROD
+    count: 60
+    duration: 14
+    speed: 0.01
+    sound: entity.firework_rocket.twinkle
+    sound2: entity.generic.explode
+    sound2-delay: 12
+  meteor:
+    name: "<gradient:#FF8A00:#8B0000>Meteor Strike</gradient>"
+    description: "Fire rains from the sky onto the kill."
+    icon: FIRE_CHARGE
+    price: 5000
+    permission: ""
+    shape: rain
+    particle: FLAME
+    particle2: LAVA
+    count: 50
+    duration: 14
+    speed: 0.02
+    sound: entity.ghast.shoot
+    sound2: entity.generic.explode
+    sound2-delay: 12
+  voidrift:
+    name: "<gradient:#2B0057:#B57BFF>Void Collapse</gradient>"
+    description: "Reality folds in on itself."
+    icon: ENDER_EYE
+    price: 6000
+    permission: ""
+    shape: spiral
+    particle: PORTAL
+    particle2: REVERSE_PORTAL
+    count: 60
+    duration: 24
+    speed: 0.4
+    sound: block.end_portal.spawn
+    sound-volume: 0.5
+  ascension:
+    name: "<gradient:#FFFFFF:#FFD700>Ascension</gradient>"
+    description: "A golden halo rises into the heavens."
+    icon: GOLDEN_APPLE
+    price: 7500
+    permission: ""
+    shape: ascend
+    particle: END_ROD
+    particle2: TOTEM_OF_UNDYING
+    count: 40
+    duration: 22
+    speed: 0.0
+    sound: item.totem.use
+    sound-pitch: 1.2
+  frostnova:
+    name: "<gradient:#9AD1FF:#FFFFFF>Frost Nova</gradient>"
+    description: "An icy ring freezes over your victim."
+    icon: BLUE_ICE
+    price: 2000
+    permission: ""
+    shape: ring
+    particle: SNOWFLAKE
+    particle2: CLOUD
+    count: 40
+    duration: 12
+    speed: 0.02
+    sound: block.glass.break
+    sound2: entity.player.hurt_freeze
+    sound2-delay: 4
+  bloodmoon:
+    name: "<gradient:#FF0033:#5A0000>Blood Moon</gradient>"
+    description: "Crimson spores pour out of the fallen."
+    icon: CRIMSON_FUNGUS
+    price: 2800
+    permission: ""
+    shape: column
+    particle: CRIMSON_SPORE
+    particle2: DAMAGE_INDICATOR
+    count: 45
+    duration: 20
+    speed: 0.02
+    sound: entity.wither.hurt
+  sakurastorm:
+    name: "<gradient:#FFB7D5:#FF4DA6>Sakura Storm</gradient>"
+    description: "Cherry petals swirl around the kill."
+    icon: PINK_PETALS
+    price: 2400
+    permission: ""
+    shape: tornado
+    particle: CHERRY_LEAVES
+    particle2: HEART
+    count: 60
+    duration: 24
+    speed: 0.01
+    sound: block.cherry_leaves.break
+  sparklerain:
+    name: "<gradient:#FFD700:#FFFFFF>Gold Rush</gradient>"
+    description: "Golden sparks shower down."
+    icon: GOLD_INGOT
+    price: 3200
+    permission: ""
+    shape: rain
+    particle: WAX_ON
+    particle2: END_ROD
+    count: 45
+    duration: 16
+    speed: 0.01
+    sound: entity.experience_orb.pickup
+    sound2: block.amethyst_block.chime
+    sound2-delay: 6
+
+# MiniMessage; <killer> and <victim> are available.
+death-messages:
+  default:
+    name: "Classic"
+    icon: IRON_SWORD
+    price: 0
+    permission: ""
+    format: "<victim> was slain by <killer>"
+  skyfall:
+    name: "Skyfall"
+    icon: FEATHER
+    price: 400
+    permission: ""
+    format: "<victim> fell from the sky thanks to <killer>"
+  outplayed:
+    name: "Outplayed"
+    icon: CROSSBOW
+    price: 400
+    permission: ""
+    format: "<killer> outplayed <victim>"
+  gg:
+    name: "Outclassed"
+    icon: NAME_TAG
+    price: 200
+    permission: ""
+    format: "<victim> got outclassed by <killer>"
+  clapped:
+    name: "Clapped"
+    icon: GOLDEN_SWORD
+    price: 400
+    permission: ""
+    format: "<killer> clapped <victim>"
+  toast:
+    name: "Toast"
+    icon: BREAD
+    price: 400
+    permission: ""
+    format: "<victim> is toast, courtesy of <killer>"
+  gravity:
+    name: "Gravity Lesson"
+    icon: ANVIL
+    price: 450
+    permission: ""
+    format: "<killer> reminded <victim> about gravity"
+  sent:
+    name: "Back to Spawn"
+    icon: ENDER_PEARL
+    price: 500
+    permission: ""
+    format: "<killer> sent <victim> back to spawn"
+  deleted:
+    name: "Deleted"
+    icon: BARRIER
+    price: 500
+    permission: ""
+    format: "<killer> deleted <victim>"
+  sniped:
+    name: "Sniped"
+    icon: SPYGLASS
+    price: 300
+    permission: ""
+    format: "<killer> sniped <victim> from across the map"
+  uninstall:
+    name: "Uninstalled"
+    icon: COMMAND_BLOCK
+    price: 350
+    permission: ""
+    format: "<victim> uninstalled thanks to <killer>"
+  boomed:
+    name: "Blown Away"
+    icon: TNT
+    price: 600
+    permission: ""
+    format: "<victim> was blown away by <killer>"
+  shadow:
+    name: "From the Shadows"
+    icon: WITHER_SKELETON_SKULL
+    price: 600
+    permission: ""
+    format: "<killer> struck <victim> from the shadows"
+  royal:
+    name: "Royal Decree"
+    icon: GOLDEN_HELMET
+    price: 800
+    permission: ""
+    format: "<victim> bowed to royalty <killer>"
+  aetherclaim:
+    name: "Claimed by the Aether"
+    icon: AMETHYST_SHARD
+    price: 1000
+    permission: ""
+    format: "<victim> was claimed by the Aether through <killer>"
+  stylish:
+    name: "Stylish"
+    icon: NETHER_STAR
+    price: 1200
+    permission: ""
+    format: "<#4DA6FF><killer></#4DA6FF> <gray>eliminated</gray> <#B57BFF><victim></#B57BFF>"
+
+  # ---- v3 ----
+  deleted2:
+    name: "Ctrl+Alt+Delete"
+    icon: REDSTONE_BLOCK
+    price: 500
+    permission: ""
+    format: "<killer> pressed <red>delete</red> on <victim>"
+  folded:
+    name: "Folded"
+    icon: PAPER
+    price: 350
+    permission: ""
+    format: "<victim> folded like paper against <killer>"
+  humbled:
+    name: "Humbled"
+    icon: SHIELD
+    price: 450
+    permission: ""
+    format: "<killer> humbled <victim> in front of everyone"
+  executed:
+    name: "Executed"
+    icon: NETHERITE_AXE
+    price: 900
+    permission: ""
+    format: "<dark_red><killer></dark_red> <gray>executed</gray> <red><victim></red>"
+  tooeasy:
+    name: "Too Easy"
+    icon: FEATHER
+    price: 400
+    permission: ""
+    format: "<killer> made it look easy against <victim>"
+  yeet:
+    name: "Yeeted"
+    icon: SLIME_BALL
+    price: 400
+    permission: ""
+    format: "<killer> yeeted <victim> out of the arena"
+  lightnight:
+    name: "Lights Out"
+    icon: LANTERN
+    price: 700
+    permission: ""
+    format: "<killer> turned off the lights on <victim>"
+  hunted:
+    name: "Hunted Down"
+    icon: BOW
+    price: 800
+    permission: ""
+    format: "<victim> was hunted down by <killer>"
+  soulcollect:
+    name: "Soul Collector"
+    icon: SOUL_LANTERN
+    price: 1100
+    permission: ""
+    format: "<#00E5FF><killer></#00E5FF> <gray>collected the soul of</gray> <#6A00FF><victim></#6A00FF>"
+  nuked:
+    name: "Nuked"
+    icon: TNT_MINECART
+    price: 1300
+    permission: ""
+    format: "<victim> was <red>nuked</red> by <killer>"
+  fatality:
+    name: "Fatality"
+    icon: WITHER_ROSE
+    price: 1500
+    permission: ""
+    format: "<dark_red><bold>FATALITY</bold></dark_red> <gray>-</gray> <killer> <gray>finished</gray> <victim>"
+  gold:
+    name: "Golden Finish"
+    icon: GOLD_BLOCK
+    price: 1800
+    permission: ""
+    format: "<gradient:#FFD700:#FFFFFF><killer></gradient> <gray>sent</gray> <gradient:#FFFFFF:#FFD700><victim></gradient> <gray>to the shadow realm</gray>"
+  rainbow:
+    name: "Rainbow Slayer"
+    icon: PRISMARINE_SHARD
+    price: 2000
+    permission: ""
+    format: "<rainbow><killer> slayed <victim></rainbow>"
+  aethergod:
+    name: "Aether Deity"
+    icon: BEACON
+    price: 3000
+    permission: ""
+    format: "<gradient:#4DA6FF:#B57BFF><killer></gradient> <gray>smote</gray> <gradient:#B57BFF:#4DA6FF><victim></gradient> <gray>with divine power</gray>"

@@ -1,0 +1,39 @@
+# GUI appearance. All menus use a dark filler, AetherMC blue accents and purple for the currency.
+accent: "#4DA6FF"
+currency-accent: "#B57BFF"
+currency-colour-migrated: true   # internal: set after the one-time gold-to-purple update of existing files
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+
+navigation:
+  back:
+    material: ARROW
+    name: "<gray>« Back"
+  home:
+    material: NETHER_STAR
+    name: "<#4DA6FF>Home"
+  refresh:
+    material: SUNFLOWER
+    name: "<yellow>Refresh"
+  previous:
+    material: SPECTRAL_ARROW
+    name: "<gray>‹ Previous"
+  next:
+    material: SPECTRAL_ARROW
+    name: "<gray>Next ›"
+
+titles:
+  hub: "<dark_gray>Aether <#4DA6FF>Hub"
+  kits: "<dark_gray>Aether <#4DA6FF>Kits"
+  economy: "<dark_gray>Aether <#B57BFF>Wallet"
+  bounty: "<dark_gray>Aether <#4DA6FF>Bounties"
+  team: "<dark_gray>Aether <#4DA6FF>Team"
+  quests: "<dark_gray>Aether <#4DA6FF>Daily Quests"
+  cosmetics: "<dark_gray>Aether <#4DA6FF>Cosmetics"
+  leaderboard: "<dark_gray>Aether <#4DA6FF>Leaderboards"
+  admin: "<dark_gray>AetherFFA <#4DA6FF>Admin"
+  confirm: "<dark_gray>Confirm"
+
+# Optional per-category overrides for the admin dashboard, e.g.:
+# dashboard:
+#   economy: {icon: EMERALD, name: "Aether Economy"}

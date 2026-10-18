@@ -1,0 +1,164 @@
+# Daily quests. Everyone sees the same set each day: `selection` chooses how many of each difficulty are drawn from the pool.
+# HARD LIMIT: at most 3 quests are active per day in total, however high `selection` is set.
+enabled: true
+content-version: 2   # internal: lets updates add NEW quests to the pool once (never overwrites or restores deleted ones)
+reset:
+  timezone: UTC                  # Java zone id, e.g. Asia/Manila
+  time: "00:00"                  # HH:mm local time
+selection:
+  EASY: 1
+  MEDIUM: 1
+  HARD: 1
+
+# Objective types: KILLS, STREAK (reach N), CAPTURE_SECONDS, CAPTURE_PAYOUTS, BOUNTY_CLAIMS, KIT_CLAIMS
+pool:
+  easy_kills:
+    name: "Warm-up"
+    type: KILLS
+    amount: 5
+    reward: 40
+    difficulty: EASY
+  easy_zone:
+    name: "Hold the Line"
+    type: CAPTURE_SECONDS
+    amount: 120
+    reward: 40
+    difficulty: EASY
+  medium_kills:
+    name: "Hunter"
+    type: KILLS
+    amount: 15
+    reward: 100
+    difficulty: MEDIUM
+  medium_payouts:
+    name: "Zone Regular"
+    type: CAPTURE_PAYOUTS
+    amount: 6
+    reward: 100
+    difficulty: MEDIUM
+  hard_streak:
+    name: "On a Roll"
+    type: STREAK
+    amount: 7
+    reward: 250
+    difficulty: HARD
+  hard_kills:
+    name: "Battle-Hardened"
+    type: KILLS
+    amount: 40
+    reward: 300
+    difficulty: HARD
+  easy_kills_3:
+    name: "First Blood"
+    type: KILLS
+    amount: 3
+    reward: 30
+    difficulty: EASY
+  easy_zone_60:
+    name: "Quick Capture"
+    type: CAPTURE_SECONDS
+    amount: 60
+    reward: 30
+    difficulty: EASY
+  easy_kit:
+    name: "Loadout"
+    type: KIT_CLAIMS
+    amount: 1
+    reward: 25
+    difficulty: EASY
+  easy_payouts:
+    name: "First Payout"
+    type: CAPTURE_PAYOUTS
+    amount: 2
+    reward: 35
+    difficulty: EASY
+  easy_streak:
+    name: "Heating Up"
+    type: STREAK
+    amount: 3
+    reward: 45
+    difficulty: EASY
+  easy_kills_8:
+    name: "Skirmisher"
+    type: KILLS
+    amount: 8
+    reward: 50
+    difficulty: EASY
+  medium_kills_10:
+    name: "Duelist"
+    type: KILLS
+    amount: 10
+    reward: 80
+    difficulty: MEDIUM
+  medium_zone:
+    name: "Zone Holder"
+    type: CAPTURE_SECONDS
+    amount: 300
+    reward: 100
+    difficulty: MEDIUM
+  medium_streak:
+    name: "Hot Streak"
+    type: STREAK
+    amount: 5
+    reward: 120
+    difficulty: MEDIUM
+  medium_bounty:
+    name: "Bounty Hunter"
+    type: BOUNTY_CLAIMS
+    amount: 1
+    reward: 130
+    difficulty: MEDIUM
+  medium_kits:
+    name: "Gear Up"
+    type: KIT_CLAIMS
+    amount: 3
+    reward: 90
+    difficulty: MEDIUM
+  medium_kills_20:
+    name: "Slayer"
+    type: KILLS
+    amount: 20
+    reward: 130
+    difficulty: MEDIUM
+  medium_payouts_10:
+    name: "Zone Veteran"
+    type: CAPTURE_PAYOUTS
+    amount: 10
+    reward: 140
+    difficulty: MEDIUM
+  hard_kills_25:
+    name: "Rampage"
+    type: KILLS
+    amount: 25
+    reward: 280
+    difficulty: HARD
+  hard_zone:
+    name: "Zone Master"
+    type: CAPTURE_SECONDS
+    amount: 900
+    reward: 300
+    difficulty: HARD
+  hard_payouts:
+    name: "Zone Tycoon"
+    type: CAPTURE_PAYOUTS
+    amount: 25
+    reward: 320
+    difficulty: HARD
+  hard_streak_10:
+    name: "Unstoppable"
+    type: STREAK
+    amount: 10
+    reward: 350
+    difficulty: HARD
+  hard_bounty:
+    name: "Bounty Legend"
+    type: BOUNTY_CLAIMS
+    amount: 3
+    reward: 400
+    difficulty: HARD
+  hard_kills_60:
+    name: "Warlord"
+    type: KILLS
+    amount: 60
+    reward: 450
+    difficulty: HARD

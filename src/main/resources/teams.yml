@@ -1,0 +1,26 @@
+# Simple optional teams: no homes, claims, banks or warps.
+enabled: true
+max-size: 4
+name-regex: "[A-Za-z0-9_]{3,16}"
+blocked-names: [admin, staff, owner, mod]
+friendly-fire: false             # applies in worlds where the "teams" feature is on
+
+invites:
+  expire-seconds: 60
+
+glow:
+  enabled: true
+  color: AQUA                    # vanilla chat colour name; AQUA is closest to AetherMC blue
+  range: 30                      # blocks; a teammate only glows for you within this distance. 0 = unlimited
+  check-interval: 20             # ticks between range checks (team changes refresh immediately)
+  # Per-viewer: the glow packets go only to teammates, so players outside the team never see it.
+  # Requires the PacketEvents plugin; without it glow is disabled (no global fallback).
+
+chat:
+  format: "<dark_gray>[<#4DA6FF><team></#4DA6FF>]</dark_gray> <white><player></white><dark_gray>:</dark_gray> <gray><message>"
+  log-to-console: false
+
+rules:
+  switch-cooldown-seconds: 30
+  reward-lockout-after-change-seconds: 120   # no kill/zone rewards right after joining/leaving a team (anti team-hopping)
+  leader-leave: BLOCK            # BLOCK | PROMOTE_OLDEST | DISBAND

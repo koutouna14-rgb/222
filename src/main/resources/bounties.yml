@@ -1,0 +1,15 @@
+# Bounties are paid from escrow. Contributions add up per target.
+enabled: true
+min-amount: 50
+max-amount: 100000
+max-total-per-target: 1000000    # 0 = no cap
+place-cooldown-seconds: 5
+place-fee-percent: 0             # charged on top of the bounty and burned
+expiry-hours: 168                # 0 = never
+refund-on-expiry-percent: 100
+payout-percent: 100              # share of the total paid to the killer (rest is burned)
+target-must-be-online: true
+block-team-bounties: true
+allow-claim-by-contributor: false   # false: contributors (and their teammates) cannot claim their own bounty
+broadcast-on-place: true
+broadcast-min-amount: 1000

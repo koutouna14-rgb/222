@@ -1,0 +1,52 @@
+# Passive capture zones. Players inside an enabled zone earn Aether every interval. No capture progress, no ownership.
+# Create zones from a WorldEdit selection: //wand (cuboid) or //sel cyl (circle), then /capturezone create <id>.
+# /capturezone redefine <id> re-shapes an existing zone from your selection. /capturezone createcircle <id> <radius> needs no
+# selection. Without WorldEdit installed, /capturezone pos1 and pos2 are used for cuboids instead.
+enabled: true
+
+afk:
+  seconds: 60                    # no real movement for this long = AFK (0 = off). Combat activity resets it.
+  min-movement-blocks: 1.5
+progress-keep-seconds: 120       # partial interval progress is kept this long after leaving (stops re-entry abuse)
+
+# Every key under defaults can be overridden per zone (zones.<id>.<key>).
+defaults:
+  mode: INDIVIDUAL               # INDIVIDUAL | CONTESTED | MAJORITY | TEAM_SHARED
+  reward: 10
+  interval-seconds: 30
+  min-players: 1                 # eligible players needed for anyone to be paid
+  max-players: 0                 # above this nobody is paid (0 = unlimited)
+  entry-delay-seconds: 3
+  safe-zone-rewards: false       # pay inside WorldGuard safe-zone regions (worlds.yml can also allow it per world)
+  exclude-spawn-protected: true
+  team-rule: SPLIT               # INDIVIDUAL/CONTESTED/MAJORITY with teams: SPLIT | ALL_MEMBERS | ONE_PER_TEAM
+  contest:
+    grace-seconds: 5             # CONTESTED: uncontested time before payouts resume
+    count-afk: false             # do AFK enemies pause the zone?
+  majority:
+    percent: 51                  # MAJORITY: share of eligible players the winning side needs (and it must lead)
+  team-shared:
+    distribution: SPLIT          # TEAM_SHARED: SPLIT | FULL_EACH | FIRST_ONLY
+    bonus-per-extra-member: 0
+  limit:
+    per-hour: 0                  # max Aether per player per hour from a zone (0 = none)
+  display:
+    actionbar: true
+    bossbar: false
+    bossbar-color: BLUE
+  messages:
+    enter: true
+    exit: true
+    reward: true
+  reward-sound: entity.experience_orb.pickup   # empty = silent
+
+# zones:
+#   mid:
+#     name: "<#4DA6FF>Center"
+#     enabled: true
+#     world: world
+#     shape: CUBOID                # min-x/min-y/min-z/max-x/max-y/max-z
+#     # shape: CYLINDER            # center-x, center-z, radius, min-y, max-y
+#     mode: CONTESTED
+#     reward: 15
+zones: {}

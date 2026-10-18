@@ -1,0 +1,167 @@
+# Consecutive valid kills (the anti-farm checks in config.yml decide what is valid).
+#
+# REWARD CURVE (kill reward is 20 Aether, see economy.yml): milestones pay roughly 25-60 Aether per kill of the streak
+# early on and grow towards the top, so a long streak is worth clearly more than the same kills spread across deaths,
+# without making the top kits free. Tiers below are only for readability; the plugin just reads the numbers.
+#   Tier I   Warm-up   3 / 5 / 7        30 / 75 / 125
+#   Tier II  Hot       10 / 15 / 20     200 / 350 / 500
+#   Tier III Legend    25 / 30 / 40     700 / 900 / 1,300
+#   Tier IV  Mythic    50 / 75 / 100    1,800 / 3,000 / 5,000
+# Milestone 3 is private (only the killer sees it) so chat is not spammed; 5 and up are announced to everyone.
+enabled: true
+content-version: 3   # internal: lets updates add NEW milestones once (never restores ones you delete)
+reset-on:
+  death: true
+  quit: false
+  disabled-world: true           # entering a world where "killstreaks" is off
+# Placeholders: <player> <streak> <reward> <name> (the milestone name)
+broadcast-format: "<prefix><#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+
+shutdown:                        # bonus for ending someone's streak (min-streak 5: 25 Aether, up to 250 at a 50 streak)
+  enabled: true
+  min-streak: 5
+  bonus-per-streak: 5
+  max-bonus: 250
+  broadcast: true
+  broadcast-message: "<prefix><#4DA6FF><player></#4DA6FF> <gray>ended <red><victim></red><gray>'s <white><streak></white> kill streak! <dark_gray>(+<bonus>)"
+
+# Per milestone:
+#   name / title / subtitle  shown to the killer (title + subtitle on screen)
+#   broadcast: true          chat line to EVERYONE online (broadcast-message, or broadcast-format above)
+#   broadcast-sound          sound played for EVERYONE online
+#   effect                   id of a kill effect from cosmetics.yml played for everyone at the killer
+milestones:
+  # ---- Tier I - Warm-up ----
+  "3":
+    name: "Heating Up"
+    reward: 30
+    broadcast: false
+    message: "<prefix><gray>Heating Up! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    title: "<#4DA6FF>HEATING UP"
+    subtitle: "<gray><streak> kills in a row"
+    sound: entity.experience_orb.pickup
+    effect: crit
+  "5":
+    name: "Killing Spree"
+    reward: 75
+    broadcast: true
+    message: "<prefix><gray>Killing Spree! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Killing Spree<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<green>KILLING SPREE"
+    subtitle: "<gray><streak> kills, no deaths"
+    sound: entity.player.levelup
+    broadcast-sound: entity.player.levelup
+    effect: shockwave
+  "7":
+    name: "Rampage"
+    reward: 125
+    broadcast: true
+    message: "<prefix><gray>Rampage! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Rampage<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<gold>RAMPAGE"
+    subtitle: "<gray>Someone stop <player>!"
+    sound: entity.blaze.shoot
+    broadcast-sound: entity.blaze.ambient
+    effect: inferno
+  # ---- Tier II - Hot ----
+  "10":
+    name: "Unstoppable"
+    reward: 200
+    broadcast: true
+    message: "<prefix><gray>Unstoppable! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Unstoppable<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<#FFC83D>UNSTOPPABLE"
+    subtitle: "<gray>10 kill streak"
+    sound: ui.toast.challenge_complete
+    broadcast-sound: entity.lightning_bolt.thunder
+    effect: thunderstrike
+  "15":
+    name: "Dominating"
+    reward: 350
+    broadcast: true
+    message: "<prefix><gray>Dominating! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Dominating<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<light_purple>DOMINATING"
+    subtitle: "<gray><streak> kills deep"
+    sound: entity.ender_dragon.growl
+    broadcast-sound: entity.wither.spawn
+    effect: galaxy
+  "20":
+    name: "Godlike"
+    reward: 500
+    broadcast: true
+    message: "<prefix><gray>Godlike! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Godlike<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<red>GODLIKE"
+    subtitle: "<gray><player> cannot be stopped"
+    sound: entity.wither.spawn
+    broadcast-sound: entity.ender_dragon.growl
+    effect: soulreaper
+  # ---- Tier III - Legend ----
+  "25":
+    name: "Legendary"
+    reward: 700
+    broadcast: true
+    message: "<prefix><gray>Legendary! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Legendary<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<#B57BFF>LEGENDARY"
+    subtitle: "<gray><streak> kill streak"
+    sound: ui.toast.challenge_complete
+    broadcast-sound: ui.toast.challenge_complete
+    effect: tornado
+  "30":
+    name: "Mythic"
+    reward: 900
+    broadcast: true
+    message: "<prefix><gray>Mythic! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Mythic<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<#FF4DA6>MYTHIC"
+    subtitle: "<gray>The server trembles"
+    sound: entity.ender_dragon.death
+    broadcast-sound: entity.ender_dragon.death
+    effect: meteor
+  "40":
+    name: "Apocalypse"
+    reward: 1300
+    broadcast: true
+    message: "<prefix><gray>Apocalypse! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Apocalypse<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<dark_red>APOCALYPSE"
+    subtitle: "<gray><streak> kills. Run."
+    sound: entity.wither.death
+    broadcast-sound: entity.wither.death
+    effect: voidrift
+  # ---- Tier IV - Mythic ----
+  "50":
+    name: "Immortal"
+    reward: 1800
+    broadcast: true
+    message: "<prefix><gray>Immortal! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Immortal<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<#FFC83D>IMMORTAL"
+    subtitle: "<gray>50 kills without dying"
+    sound: ui.toast.challenge_complete
+    broadcast-sound: ui.toast.challenge_complete
+    effect: frostnova
+  "75":
+    name: "Ascended"
+    reward: 3000
+    broadcast: true
+    message: "<prefix><gray>Ascended! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Ascended<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<aqua>ASCENDED"
+    subtitle: "<gray>75 kill streak"
+    sound: entity.ender_dragon.death
+    broadcast-sound: entity.ender_dragon.death
+    effect: bloodmoon
+  "100":
+    name: "Aether God"
+    reward: 5000
+    broadcast: true
+    message: "<prefix><gray>Aether God! <white><streak> <gray>kills in a row. <#B57BFF>+<reward>"
+    broadcast-message: "<prefix><#FFC83D>Aether God<gray> - <#4DA6FF><player></#4DA6FF> <gray>is on a <white><streak></white> kill streak!"
+    title: "<gradient:#4DA6FF:#B57BFF>AETHER GOD"
+    subtitle: "<gray>100 kill streak!"
+    sound: ui.toast.challenge_complete
+    broadcast-sound: ui.toast.challenge_complete
+    effect: ascension

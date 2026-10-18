@@ -1,0 +1,98 @@
+name: AetherFFA
+main: net.aethermc.ffa.AetherFFA
+version: ${project.version}
+api-version: '1.21'
+authors: [AetherMC]
+description: FFA gameplay systems (Aether economy, kits, capture zones, bounties, teams, quests, cosmetics) for existing battleground worlds.
+depend: [JustCombat]
+softdepend: [WorldGuard, WorldEdit, FastAsyncWorldEdit, PlaceholderAPI, packetevents]
+
+commands:
+  aether:
+    description: Aether hub - wallet, bounties, quests, kits, cosmetics, team, leaderboards
+    usage: /aether [balance|pay|top|bounty|lb|quests|kits|shop|messages|team|admin]
+    permission: aetherffa.aether.use
+  kits:
+    description: Open the kit menu
+    usage: /kits
+    permission: aetherffa.kit.use
+  kit:
+    description: Claim, preview or manage kits
+    usage: /kit <name> | preview <name> | create|edit|delete <name> | give <player> <name> | premade | reload
+    permission: aetherffa.kit.use
+  bounty:
+    description: Bounties
+    usage: /bounty [set <player> <amount> | top | info <player>]
+    permission: aetherffa.bounty.use
+  team:
+    description: Teams
+    usage: /team [create|invite|accept|deny|kick|promote|leave|disband|chat|info]
+    permission: aetherffa.team.use
+  tc:
+    description: Team chat
+    usage: /tc <message>
+    permission: aetherffa.team.use
+  aetherffa:
+    description: Admin entry point
+    usage: /aetherffa [admin|settings|reload|alerts]
+    aliases: [affa]
+  capturezone:
+    description: Capture-zone administration
+    usage: /capturezone [status|pos1|pos2|create|redefine|createcircle|delete|enable|disable|info|list|set|gui]
+    aliases: [cz]
+  quests:
+    description: Daily quests
+    usage: /quests
+    permission: aetherffa.quests.use
+  cosmetics:
+    description: Kill effects and death messages
+    usage: /cosmetics
+    permission: aetherffa.cosmetics.use
+  leaderboard:
+    description: Leaderboards
+    usage: /leaderboard [category]
+    aliases: [lb, ffatop]
+    permission: aetherffa.leaderboard.use
+
+permissions:
+  aetherffa.aether.use: {description: Use /aether, default: true}
+  aetherffa.aether.pay: {description: Pay other players, default: true}
+  aetherffa.aether.balance.others: {description: View other players' balances, default: op}
+  aetherffa.kit.use: {description: Browse and claim kits, default: true}
+  aetherffa.bounty.use: {description: Use bounties, default: true}
+  aetherffa.team.use: {description: Use teams (join, leave, chat), default: true}
+  aetherffa.team.manage: {description: Team leader actions (create, invite, kick, promote, disband), default: true}
+  aetherffa.quests.use: {description: Daily quests, default: true}
+  aetherffa.cosmetics.use: {description: Cosmetics menu, default: true}
+  aetherffa.leaderboard.use: {description: Leaderboards, default: true}
+  aetherffa.capture.earn: {description: Earn Aether in capture zones, default: true}
+  aetherffa.alerts: {description: Receive anti-abuse staff alerts, default: op}
+  aetherffa.bypass.kitcooldown: {description: Ignore kit cooldowns, default: false}
+  aetherffa.admin.settings: {description: Edit settings in the GUI, default: op}
+  aetherffa.admin.reload: {description: Reload configuration, default: op}
+  aetherffa.admin.economy: {description: /aether admin give|take|set, default: op}
+  aetherffa.admin.kits: {description: Create, edit, delete and give kits, default: op}
+  aetherffa.admin.zones: {description: Manage capture zones, default: op}
+  aetherffa.admin.bounty: {description: Inspect and remove bounties, default: op}
+  aetherffa.admin.teams: {description: Inspect and manage any team, default: op}
+  aetherffa.admin.quests: {description: Reset quests, default: op}
+  aetherffa.admin.players: {description: Player management GUI, default: op}
+  aetherffa.admin.diagnostics: {description: Database and diagnostics GUI, default: op}
+  aetherffa.admin.messages: {description: Edit messages in the GUI, default: op}
+  aetherffa.admin:
+    description: Open the admin dashboard and use every admin tool
+    default: op
+    children:
+      aetherffa.admin.settings: true
+      aetherffa.admin.reload: true
+      aetherffa.admin.economy: true
+      aetherffa.admin.kits: true
+      aetherffa.admin.zones: true
+      aetherffa.admin.bounty: true
+      aetherffa.admin.teams: true
+      aetherffa.admin.quests: true
+      aetherffa.admin.players: true
+      aetherffa.admin.diagnostics: true
+      aetherffa.admin.messages: true
+      aetherffa.alerts: true
+      aetherffa.aether.balance.others: true

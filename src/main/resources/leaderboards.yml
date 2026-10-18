@@ -1,0 +1,24 @@
+# icon = menu tab material (empty = default for the column). Cached top lists, refreshed asynchronously. Columns: kills, deaths, best_streak, streak, balance, bounty_earned, bounties_claimed
+refresh-seconds: 60
+display-limit: 10
+categories:
+  kills:
+    enabled: true
+    title: "Total Kills"
+    column: kills
+    icon: DIAMOND_SWORD
+  streak:
+    enabled: true
+    title: "Best Kill Streak"
+    column: best_streak
+    icon: BLAZE_POWDER
+  balance:
+    enabled: true
+    title: "Richest"
+    column: balance
+    icon: GOLD_INGOT
+  bounty:
+    enabled: true
+    title: "Bounty Hunters"
+    column: bounty_earned
+    icon: TARGET

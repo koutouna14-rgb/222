@@ -1,0 +1,17 @@
+# AetherFFA - general settings.
+# Per-system options live in their own files (economy.yml, kits.yml, ...). Most can be edited in-game: /aetherffa admin
+# Only the keys below are read by this file; unknown keys are ignored.
+
+anti-farm:
+  # Kills only count (Aether, streaks, bounties, quests) when ALL of these checks pass.
+  block-safe-zone-kills: true          # killer or victim inside a configured WorldGuard safe-zone region
+  block-team-kills: true               # teammates never pay each other
+  block-same-ip: true                  # two players on one public IP (private/loopback addresses are ignored)
+  min-seconds-after-victim-respawn: 5  # anti spawn-camping
+  pair-cooldown-seconds: 30            # same killer -> same victim must wait this long between paid kills
+  repeat-kill-window-seconds: 600      # window for the repeat limit below
+  repeat-kill-max: 3                   # paid kills of the same victim per window (0 = unlimited)
+  # Staff alerts only. Nothing here punishes anyone automatically.
+  alert-threshold: 5                   # rejected kills inside the alert window before staff are told (0 = off)
+  alert-window-seconds: 600
+  alert-staff: true                    # also message players with aetherffa.alerts (always logged to console/database)

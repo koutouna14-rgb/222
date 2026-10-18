@@ -1,0 +1,10 @@
+# Combat is handled by JustCombat (required plugin). Configure these in plugins/JustCombat/config.yml:
+#   combat tag + duration, blocked commands/items/elytra/teleports, flight lock, logout action (KILL / NOTHING / PUNISH),
+#   respawn protection (mechanics.respawn_protection), newbie protection, safe-zone PvP blocking.
+# AetherFFA only reads JustCombat's state (kits and capture zones respect the tag / protection, the kill pipeline credits
+# combat-log kills) and adds the Aether-economy side of a combat logout below.
+# Per-world: AetherFFA's "combat-tag" world feature (worlds.yml) switches this logout handling on/off for a world.
+logout:
+  aether-fine-percent: 0        # % of the player's Aether balance removed when JustCombat registers a combat logout
+  credit-kill-to-attacker: true # only when JustCombat's combat.logout_action is KILL; the kill still passes the anti-farm guard
+  ignore-kicks: true            # staff kicks never count

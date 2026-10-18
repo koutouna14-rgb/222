@@ -1,0 +1,21 @@
+# Existing battleground worlds. AetherFFA never teleports players, creates worlds, edits NPCs or edits WorldGuard regions.
+# Worlds not listed here follow "unlisted-worlds-enabled".
+unlisted-worlds-enabled: false
+
+worlds:
+  world:                                # exact world folder name; add one block per battleground world
+    enabled: true
+    features:                           # per-world toggles
+      kill-rewards: true
+      killstreaks: true
+      bounties: true
+      capture-zones: true
+      kits: true
+      quests: true
+      cosmetics: true
+      combat-tag: true
+      teams: true
+    # WorldGuard region ids that count as safe zones in this world. Only regions listed here are treated as safe.
+    safe-regions: []
+    # Default false: capture zones pay nothing while the player stands inside a safe-zone region.
+    safe-zone-capture-rewards: false

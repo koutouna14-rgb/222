@@ -1,0 +1,25 @@
+# Kits. Contents are captured from an admin's inventory (/kit create <name>, or the Kit Management GUI) and stored
+# as serialized items below - you normally never edit the "contents" blocks by hand.
+settings:
+  premade-installed: false              # internal: premade kits are installed once on a fresh server; /kit premade adds any that are missing
+  allow-clear-inventory: false          # allows kits with clear-inventory: true
+  block-while-combat-tagged: true
+  banned-materials: [BEDROCK, BARRIER, COMMAND_BLOCK, CHAIN_COMMAND_BLOCK, REPEATING_COMMAND_BLOCK, STRUCTURE_BLOCK, JIGSAW, DEBUG_STICK, KNOWLEDGE_BOOK, SPAWNER]
+
+# kits:
+#   starter:
+#     enabled: true
+#     display-name: "<#4DA6FF>Starter"
+#     icon: IRON_SWORD
+#     description: ["A basic loadout."]
+#     price: 0                    # 0 = free (unless a permission is set)
+#     permission: ""              # grants the kit without buying (if price is 0 it is required)
+#     unlock: PERMANENT           # or TIMED (then timed-hours applies after purchase)
+#     timed-hours: 24
+#     cooldown-seconds: 300
+#     worlds: []                  # empty = every world where kits are enabled
+#     clear-inventory: false
+#     contents: {items: [...], armor: {helmet: ..., offhand: ...}, effects: ["SPEED:0:60"]}   # effects TYPE:amplifier:seconds
+#     upgrades:                   # optional: level 2+ replace the contents completely
+#       2: {price: 1500, items: [...], armor: {...}, effects: [...]}
+kits: {}
